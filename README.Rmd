@@ -1,4 +1,18 @@
-# R_Workshop_BCCHR_2022
+---
+title: "R Workshop"
+author: "Shakiba Baharvand"
+date: "2022-08-24"
+output:
+  prettydoc::html_pretty:
+    toc: true
+    toc_depth: 1
+    theme: cayman
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 # Introduction
 

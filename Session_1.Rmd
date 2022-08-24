@@ -218,5 +218,17 @@ In computer programming, a loop is a sequence of instructions that continually r
 
 ![](images/paste-A3670E4F.png)
 ```{r, include=TRUE, echo=TRUE}
+n <- c(1:5) #n = (1, 2, 3, 4, 5) - n is a sequence
+for (i in n) {
+  print(rep("*", i)) #The `rep(value, x)` function replicates the values in x.
+}
 
+i <- 1
+while (i <= 5) {
+  print(rep("*", i))
+  i <- i + 1
+}
 ```
+
+# STOP_1
+## Algorit

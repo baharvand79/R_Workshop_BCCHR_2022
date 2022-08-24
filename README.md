@@ -52,10 +52,16 @@ Introduction to R
 
 # Session 2: Tuesday, 08/30/2022, Room 3113, 1 - 3 PM
 
-Title: Bulk RNA-seq Data Analysis with the DESeq2 Package
+##Title
+
+Bulk RNA-seq Data Analysis with the DESeq2 Package
 
 # Session 3: Wednesday, 08/31/2022, Room 2108, 1 - 3 PM 
 
 ## Title
 
 Pathway Analysis in R
+
+# UPDATES
+
+-   08/24/2022: README file added

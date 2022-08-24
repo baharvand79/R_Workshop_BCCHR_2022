@@ -217,6 +217,7 @@ if (var %% 2 == 0) {
 In computer programming, a loop is a sequence of instructions that continually repeats until a certain condition is reached. For example you want to print stars with a specific pattern. You have 5 lines. Line n should have n stars, first line one star, second line two stars and so on. You can make this output with a loop. There are two types of loops.
 
 ![](images/paste-A3670E4F.png)
+
 ```{r, include=TRUE, echo=TRUE}
 n <- c(1:5) #n = (1, 2, 3, 4, 5) - n is a sequence
 for (i in n) {
@@ -231,4 +232,5 @@ while (i <= 5) {
 ```
 
 # STOP_1
-## Algorit
+
+## What is Algorithm?

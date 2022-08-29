@@ -39,7 +39,7 @@ RStudio is an IDE (integrated development environment) used to manage and execut
 
 [![](images/paste-D39F3AC1.png){width="663"}](https://www.rstudio.com/products/rstudio/)
 
-# First line of code
+# First Line of Code
 
 Open RStudio and make an R script file.
 
@@ -328,12 +328,10 @@ new_vec
 You can select elements of a vector by position and value. We call the position of the index of the element.
 
 |                                                              |                                                              |
-|------------------------------------|------------------------------------|
+|--------------------------------------------------------------|--------------------------------------------------------------|
 | ![base-r-chaetsheet](images/paste-451A3300.png){width="360"} | ![base-r-chaetsheet](images/paste-F2AFB91A.png){width="358"} |
 
 ```{r}
-subset_vec <- c("joker", "ironman")
-hero <- "batman"
 heroes_vec <- c("spiderman", "batman", "joker", "thor", "ironman")
 heroes_vec
 
@@ -345,6 +343,9 @@ heroes_vec[-(2:5)]
 heroes_vec[c(1, 5)]
 
 # by value
+subset_vec <- c("joker", "ironman")
+hero <- "batman"
+
 heroes_vec[heroes_vec == hero] # you can put any other conditions here
 heroes_vec[heroes_vec %in% subset_vec]
 
@@ -361,6 +362,7 @@ Syntax: sort(x, decreasing)
 
 ```{r, echo=TRUE}
 n <- c(12, 1, 133, -2)
+n
 n_sorted <- sort(n, decreasing = TRUE) #by setting the decreasing argument to TRUE, we can order the vector descending
 n_sorted
 ```
@@ -414,6 +416,8 @@ Syntax: factor(x, levels)
 ```{r}
 #factor()
 cities_vec <- c("Vancouver", "Burnaby", "Tehran", "Vancouver", "Tehran")
+cities_fac <- factor(x = cities_vec)
+cities_fac
 cities_fac <- factor(x = cities_vec, levels = sort(unique(cities_vec))) 
 cities_fac
 # unique() returns a vector/data frame with duplicate elements/rows removed
@@ -466,11 +470,7 @@ heroes_df
 
 ### Subsetting
 
-|                                            |                              |
-|------------------------------------------|-----------------------------|
-| ![](images/paste-F09170C2.png){width="65"} | df[ , 2 ] or df\$column_name |
-| ![](images/paste-C64D46A3.png){width="65"} | df [ 2 , ]                   |
-| ![](images/paste-FF47D08D.png){width="65"} | df [ 2 , 2 ]                 |
+![](images/paste-E6BA80F0.png)
 
 When we don't specify the row index or column index, we select all of them.
 
@@ -573,9 +573,9 @@ l <- list(numbers_vec = vec, numbers_mat = mat, colors = fac)
 l
 ```
 
-### Subsetting
+### Selecting Elements
 
-![](images/paste-333A7341.png)
+![](images/paste-D19BE9EA.png)
 
 ```{r}
 l[[2]]
@@ -633,9 +633,9 @@ vec_l <- as.vector(l)
 vec_l
 ```
 
-# Make Functions
+# Defining a Function
 
-You can write your own functions to make repetitive operations using a single command. Your function can return nothing and should be defined before use.
+You can write your own functions to make repetitive operations using a single command. Your function can return nothing and should be defined before using.
 
 ![](images/paste-FB838EDE.png)
 
@@ -699,10 +699,6 @@ With library(), we can load the packages into the session and make their functio
 
 ```{r}
 # install.packages("tidyverse)
-library(tidyverse)
-```
-
-```{r, echo = TRUE, include = TRUE}
 library(tidyverse)
 ```
 
@@ -959,7 +955,8 @@ women_sep_row <- separate_rows(women, city_province, sep = ",", convert = TRUE)
 
 The separate() turns a single character column into multiple columns.
 
-Syntax: separate(data, col, into, sep, convert). The convert should be a logical value. Always set it to TRUE.
+Syntax: separate(data, col, into, sep, convert).
+The convert should be a logical value. Always set it to TRUE.
 
 ```{r}
 women_sep_col <- separate(data = women, col = city_province, into = c("city", "province"), sep = ",", convert = TRUE, remove = TRUE)

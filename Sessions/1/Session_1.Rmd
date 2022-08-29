@@ -2,7 +2,7 @@
 title: "Session 1"
 subtitle: "Introduction to R"
 author: "Shakiba Baharvand"
-date: "2022-08-19"
+date: "2022-08-29"
 output: 
   prettydoc::html_pretty:
     toc: true
@@ -19,23 +19,23 @@ knitr::opts_chunk$set(echo = TRUE) #highlite = github
 
 # Introduction to the Workshop
 
-This workshop is for biologists interested in learning how to work with R to analyze their bulk RNA-seq data and perform pathway analysis. This will be a code-along, in-person workshop.
+This workshop is for biologists interested in learning how to work with R to analyse their bulk RNA-seq data and perform pathway analysis. This will be a code-along, in-person workshop.
 
 # What is programming?
 
-Programming is giving a set of instructions to a computer to perform tasks. Programming can be done using a variety of computer programming languages. Programming languages are the tools that we use to write the instructions for computers. Computers only understand 1s and 0s. 0s mean no flow of electricity, and 1s represent electricity is allowed to flow. Programming languages allow us to translate 1s and 0s into something that humans can understand.
+Programming is giving a set of instructions to a computer to perform tasks. Programming can be done using a variety of computer programming languages. Programming languages are the tools we use to write computer instructions. Computers only understand 1s and 0s. 0s mean no flow of electricity, and 1s represent electricity is allowed to flow. Programming languages allow us to translate 1s and 0s into something humans can understand.
 
 [![](images/what-is-a-programming-language.png){width="595"}](https://www.codecademy.com/resources/blog/programming-languages/)
 
 # R as a programming language
 
-R is both software and language. R is a system for statistical analyses and graphics. At first, R could seem too complex for a non-specialist. This may not be true. R's syntax is very simple.
+R is both software and language. R is a system for statistical analyses and graphics. At first, R could seem too complex for a non-specialist. This may not be true. R's syntax is straightforward.
 
 [![](images/rstudio-modern.png)](https://timmastny.com/projects/r-syntax-highlighting-gallery/)
 
 # RStudio
 
-RStudio is an IDE (integrated development environment) that is used to manage and execute R code.
+RStudio is an IDE (integrated development environment) used to manage and execute R code.
 
 [![](images/paste-D39F3AC1.png){width="663"}](https://www.rstudio.com/products/rstudio/)
 
@@ -51,7 +51,7 @@ print("Hello, World!")
 
 ![](images/hello_world.PNG)
 
-You can see the phrase is presented on your console. When that little angle bracket is there, it means there is no work in progress and you can run a new instruction. But if you couldn't see the angle bracket, it means some instructions are running and you need to wait.
+You can see the phrase is presented on your console. When that little angle bracket is represented, it means there is no work in progress, and you can run a new instruction. But if you can't see the angle bracket, it means some instructions are running, and you need to wait.
 
 The phrase "Hello, World!" is a small test which existed since the development of programmable computers. It is a tradition to use this phrase as a test message.
 
@@ -69,13 +69,13 @@ print("Hello, World!")
 
 # Variables
 
-Every R program deals with data. Variables allow us to store and manipulate data. They have a name and a value and they are binding with an assignment operator.
+Every R program deals with data. Variables allow us to store and manipulate data. They have a name and value and are bound by an assignment operator.
 
 ![](images/paste-1E333D92.png)
 
 We will discuss five main types of variables in R.
 
-You can show type of a data with `typeof()` function. Also, `class()` show you the class an object belong to.
+You can show the data type with the `typeof()` function. Also, `class()` show you the class an object belongs to.
 
 ## Type of variables
 
@@ -92,7 +92,7 @@ class(num_var)
 
 #### integer
 
-It specifies real values without decimal points. You can define it with a L at the end of the number.
+It specifies real values without decimal points. You can define it with an L at the end of the number.
 
 ```{r, include=TRUE, echo=TRUE}
 int_var <- 11L
@@ -182,27 +182,27 @@ a != b
 
 # Functions
 
-Functions are a piece of code that accomplish a specific task. Functions usually take in some data, process it, and return a result. Functions are always recognizable with the pair of parenthesis.
+Functions are a piece of code that accomplish a specific task. Functions usually take in some data, process it, and return a result. Functions are always recognisable with a pair of parenthesis.
 
 ![](images/paste-9BA0ED09.png)
 
-As an example, `as.integer()` is a function. Its argument is a numeric variable and it returns an integer value. It is recognizable by its parenthesis.
+As an example, `as.integer()` is a function. Its argument is a numeric variable, and it returns an integer value. It is recognisable by its parenthesis.
 
 ![](images/paste-C01B6DD8.png)
 
-Some functions are in-built in R or they are provided by the packages. (Packages are the collection of R functions.) Also, you can write your own function. We will discuss it later.
+Some functions are in-built in R or provided by the packages. (Packages are the collection of R functions.) Also, you can write your own function. We will discuss it later.
 
-Here is a list of maths functions of base R. You can find useful functions from base R in the book of *R for Beginners* by Emmanuel Paradis on page 36 and 37.
+Here is a list of maths functions of base R. You can find helpful functions from base R in the book of *R for Beginners* by Emmanuel Paradis on pages 36 and 37.
 
 ![](images/paste-F42BDAE7.png)
 
 # Conditional statements
 
-Imagine you have a list of numbers and you need to separate odd numbers from this list. We know that there is always a remainder when an odd number is divided by 2 and it is not equal to zero. If you want to check the list, you can tell the computer, check if the remainder of the number nth in the list is not equal to zero. If it is, pick the nth number in the list. This phrase is a condition that computer need to check it. Conditional statements are the way computers can make decisions. Conditional statements always have an if part and if you need more conditions to make up your decisions, else part can be helpful.
+Imagine you have a list of numbers and need to separate odd numbers from this list. We know that there is always a remainder when an odd number is divided by 2, which is not equal to zero. If you want to check the list, you can tell the computer to check if the remainder of the number nth in the list is not equal to zero. If it is, pick the nth number in the list. This phrase is a condition that the computer needs to check it. Conditional statements are the way computers can make decisions. Conditional statements always have an if part, and if you need more conditions to make up your decisions, the else part can be helpful.
 
 ![](images/paste-2F1F097B.png)
 
-The below code, shows how to pick odd numbers from the list of numbers. We've already learned it the remainder operator `%%` and we know the conditional operates like`==, !=, \<, \>\`.
+The below code shows how to pick odd numbers from the list of numbers. We've already learned the remainder operator `%%`, and we know the conditional operates like`==, !=, \<, \>\`.
 
 ```{r, include=TRUE, echo=TRUE}
 var <- 11
@@ -227,7 +227,7 @@ if (var %% 2 == 0) {
 
 # Loop
 
-In computer programming, a loop is a sequence of instructions that continually repeats until a certain condition is reached. For example you want to print stars with a specific pattern. You have 5 lines. Line n should have n stars, first line one star, second line two stars and so on. You can make this output with a loop. There are two types of loops.
+In computer programming, a loop is a sequence of instructions that continually repeats until a certain condition is reached. For example, you want to print stars with a specific pattern. You have five lines. Line n should have n stars, first line one star, second line two stars and so on. You can make this output with a loop. There are two types of loops.
 
 ![](images/paste-A3670E4F.png)
 
@@ -246,7 +246,7 @@ while (i <= 5) {
 
 # Data Structures
 
-Data structures are methods of storing and organizing data in a computer system.
+Data structures are methods of storing and organising data in a computer system.
 
 ![](images/paste-24F27766.png)
 
@@ -256,7 +256,7 @@ A vector is just a set of objects of the same type.
 
 ### Creating
 
-It created using the c(). There are different ways to create a vector. The below tables shows them.
+A vector can be created using the c(). There are different ways to create a vector. The below tables show them.
 
 ![](images/paste-27B672BD.png)
 
@@ -283,19 +283,19 @@ rep_e_vec <- rep(x = c(1:2), each = 3)
 rep_e_vec
 ```
 
-**Q:** Is it possible to store different types of variable in a vector?
+**Q:** Is it possible to store different types of variables in a vector?
 
-it is possible, but after creating the vector, the variables' types changes.
+It is possible, but the variables' types change after creating the vector.
 
 ```{r}
-# you can see the elements' types are changed to the character and when we want to show them, you can the quotation in their representation.
+# you can see the elements' types are changed to the character, and when we want to show them, you can see the quotation in their representation.
 names_vec_2 <- c("Sarah", 2, TRUE)
 class(names_vec_2[2])
 names_vec_2[2]
 class(names_vec_2[3])
 names_vec_2[3]
 
-# you can see the elements' types are changed to the numeric.
+# you can see the elements' types are changed to numeric.
 ## logical values as numeric values: TRUE -> 1, FALSE -> 0
 names_vec_3 <- c(TRUE, 2)
 class(names_vec_3[1])
@@ -306,14 +306,14 @@ names_vec_3[2]
 
 ### Naming
 
-You can name a vector elements.
+You can name vector elements.
 
 ```{r, echo=TRUE}
 vec <- c(first = 10, second = 20, third = 30)
 vec
 ```
 
-If you have already a vector, there are two functions to use.
+If you already have a vector, there are two functions to use.
 
 ```{r, echo=TRUE}
 new_vec <- c(10, 20, 30)
@@ -325,7 +325,7 @@ new_vec
 
 ### Selecting Elements
 
-You can select elements of a vector by position and value. We call the position of the elements index.
+You can select elements of a vector by position and value. We call the position of the index of the element.
 
 |                                                              |                                                              |
 |------------------------------------|------------------------------------|
@@ -375,7 +375,7 @@ n_ordered
 
 ### Combine Vectors
 
-You can add a vector to other with c(). You can use it to add a new element, too.
+You can add a vector to others with c(). You can use it to add a new element, too.
 
 ```{r, echo = TRUE}
 # add a vector to another
@@ -393,7 +393,7 @@ x
 
 ### Length
 
-You can show length of a vector by length().
+You can show the length of a vector by length().
 
 Syntax: length(x)
 
@@ -407,7 +407,7 @@ length(vec)
 
 [![](images/factor-r.png){width="479"}](https://r-coder.com/factor-r/)
 
-Factors are used to represent categorical data. They are kind of ordered labelled vector. Factors are an important class for statistical analysis and useful for plotting. The factor() and allows us to create factors.
+Factors are used to represent categorical data. They are kind of ordered labelled vectors. Factors are an important class for statistical analysis and helpful in plotting. The factor() allows us to create factors.
 
 Syntax: factor(x, levels)
 
@@ -416,11 +416,11 @@ Syntax: factor(x, levels)
 cities_vec <- c("Vancouver", "Burnaby", "Tehran", "Vancouver", "Tehran")
 cities_fac <- factor(x = cities_vec, levels = sort(unique(cities_vec))) 
 cities_fac
-# unique() returns a vector/dataframe with duplicate elements/rows removed
-# we know sort() from previous part. When you sort a vector of characters, it will sort it alphabetically
+# unique() returns a vector/data frame with duplicate elements/rows removed
+# we know sort() from the last part. When you sort a vector of characters, it will sort it alphabetically.
 ```
 
-Factor is a type of data.
+The factor is a type of data.
 
 ```{r}
 class(cities_fac)
@@ -437,7 +437,7 @@ cities_fac
 
 ## Data Frames
 
-A data frame is the most common way of sorting data in R. It is a list of equal length vectors. It is table shaped and have columns and rows.
+A data frame is the most common way of sorting data in R. It is a list of equal-length vectors. It is table shaped and has columns and rows.
 
 Column names should not be empty in a data frame. Row names should be unique.
 
@@ -453,13 +453,13 @@ heroes_df <- data.frame(name = c("ironman", "spiderman", "batman"),
                  strength_score = c(10, 8, 8.2))
 print(heroes_df)
 
-# you can add row names when you are creating the data frame by adding row.names argument
+# you can add row names when you are creating the data frame by adding a row.names argument
 heroes_df <- data.frame(name = c("ironman", "spiderman", "batman"),
                  strength_score = c(10, 8, 8.2),
                  row.names = c("hero_1", "hero_2", "hero_3"))
 print(heroes_df)
 
-# we can add a new column with $ operator.
+# we can add a new column with the $ operator.
 heroes_df$assigned_color <- c("red", "red&blue", "black")
 heroes_df
 ```
@@ -472,7 +472,7 @@ heroes_df
 | ![](images/paste-C64D46A3.png){width="65"} | df [ 2 , ]                   |
 | ![](images/paste-FF47D08D.png){width="65"} | df [ 2 , 2 ]                 |
 
-When we don't specify the row index or column index, it means we are selecting all of it.
+When we don't specify the row index or column index, we select all of them.
 
 ```{r}
 # column
@@ -497,19 +497,19 @@ data("mtcars")
 # display the internal structure
 str(mtcars)
 ## it shows that there are 11 columns with 32 elements in each column.
-## All of the values in the columns are numeric. the mtcars is a data frame
+## All of the values in the columns are numeric. The mtcars is a data frame.
 
 # column names and row names
 col_names <- colnames(mtcars)
 col_names
-## toupper() is a function to capitalize all of the letters in a string
+## toupper() is a function to capitalise all of the letters in a string
 new_col_names <- toupper(col_names)
 colnames(mtcars) <- new_col_names
 colnames(mtcars)
 
 rownames(mtcars)
 
-# number od columns and rows
+# number of columns and rows
 nrow(mtcars)
 ncol(mtcars)
 dim(mtcars)
@@ -547,7 +547,7 @@ Matrix is a collection of elements of the same data type arranged into a fixed n
 
 You can create a matrix with matrix().
 
-Syntax: matrix(x, nrow, ncol, byrow) The nrow and ncol arguments determine the number od rows and columns. The byrow argument accepts logical values. If it sets to TRUE the matrix is filled by columns, otherwise is filled by row.
+Syntax: matrix(x, nrow, ncol, byrow) The nrow and ncol arguments determine the number of rows and columns. The byrow argument accepts logical values. If it sets to TRUE, the matrix is filled by columns, otherwise is filled by rows.
 
 ```{r}
 vec <- c(1:10)
@@ -555,7 +555,7 @@ matrix(data = vec, nrow = 5, ncol = 2, byrow = FALSE)
 matrix(data = vec, nrow = 5, ncol = 2, byrow = TRUE)
 ```
 
-The mentioned functions in data frame part, can be used for matrices.
+The mentioned functions in the data frame part can be used for matrices.
 
 ## Lists
 
@@ -563,7 +563,7 @@ Lists are ordered collections of any R object. It stores different types of elem
 
 ### Creating
 
-You can create a list with list(). Syntax: list(object1, object2, object3, ...)
+You can create a list with the list(). Syntax: list(object1, object2, object3, ...)
 
 ```{r}
 vec <- c(1:10)
@@ -606,7 +606,7 @@ df <- as.data.frame(l)
 df
 ```
 
-**Q_1:** When we convert a data frame or a matrix to a list, we are missing the column names. Is it possible to assign the column names to the elements of the list?
+**Q_1:** When we convert a data frame or a matrix to a list, we miss the column names. Is it possible to assign the column names to the list elements?
 
 Yes, you can use the names().
 
@@ -615,7 +615,7 @@ names(l) <- colnames(mat)
 l
 ```
 
-However, you cannot assign the column names directly. It cannot recognize the elements of each column. So we need to define the names by ourselves.
+However, you cannot assign the column names directly. It cannot recognise the elements of each column. So we need to define the names by ourselves.
 
 ```{r}
 names(l) <- rep(colnames(mat), each = 3)
@@ -624,7 +624,7 @@ l
 
 **Q_2:** Is it possible to convert any type of object to another?
 
-No, sometimes it is not possible to convert two dimensional data structures to a single dimensional data structure. For example, you cannot convert a data frame or a list to a vector.
+No, sometimes converting two-dimensional data structures to single-dimensional data structures is impossible. For example, you cannot convert a data frame or a list to a vector.
 
 ```{r}
 vec_df <- as.vector(df)
@@ -635,7 +635,7 @@ vec_l
 
 # Make Functions
 
-You can write your own functions in order to make repetitive operations using a single command. Your function can return nothing and should be defined before using.
+You can write your own functions to make repetitive operations using a single command. Your function can return nothing and should be defined before use.
 
 ![](images/paste-7C17BFCE.png){width="436"}
 
@@ -655,11 +655,11 @@ result
 
 # Naming
 
--   Object names must start with a letter, and can only contain letters, numbers, underscore (\_) , and dot (.) .
+-   Object names must start with a letter, and can only contain letters, numbers, underscore (\_), and dot (.).
 
--   Name of an object should be meaningful and show its purpose clearly.
+-   The name of an object should be meaningful and show its purpose clearly.
 
--   There are different styles of naming objects, but it is recommended to use snake_case style. In this style each space is replaced by an underscore character, and the first letter of each word is written in lowercase.
+-   There are different styles of naming objects, but it is recommended to use the snake_case style. In this style, each space is replaced by an underscore character, and the first letter of each word is written in lowercase.
 
 -   There are other ways to name objects.
 
@@ -669,19 +669,19 @@ result
 
 Here are some tips for naming objects:
 
--   Show what type of data structure is your object. For example `cars_df`, shows this object is a data frame.
+-   Show what type of data structure your object is. For example, `cars_df` shows this object is a data frame.
 
 -   Start the name of logical variables with "is". For example, `is_odd = TRUE`.
 
--   Sometimes you have to use a string or a number several times. For instance, you have a not ordered vector of numbers. You want to select numbers more than 10, but you are not sure if you want to change it later and you used this condition many times in your code. It is better to define this value as a variable. Because if you decide to change the value you don't need to change it one by one. You will change the value. It is better to name it will all uppercase letters. Like `SELECTED_NUMS = 10`.
+-   Sometimes, you have to use a string or a number several times. For instance, you have a not ordered vector of numbers. You want to select numbers more than 10, but you are unsure if you want to change them later, and you used this condition many times in your code. It is better to define this value as a variable. Because if you decide to change the value, you don't need to change it one by one. You will change the value. It is better to name it will all uppercase letters. Like `SELECTED_NUMS = 10`.
 
--   Names should be meaningful but you should not name them long. For instance, besides naming this: `up_regulated_genes_from_gsea_method_and_mesh_database_list`
+-   Names should be meaningful, but you should not name them long. For instance, besides naming this: `up_regulated_genes_from_gsea_method_and_mesh_database_list`
 
     Use this: `up_gsea_mesh_l`
 
 -   Start function names with command verbs to separate them from other objects and variables.
 
--   There are some reserved names in R. For example, data.frame is a reserved name. You cannot name your objects similar to reserved name. Because they will be overwritten and you will miss them.
+-   There are some reserved names in R. For example, data.frame is a reserved name. You cannot name your objects similar to a reserved name. Because they will be overwritten and you will miss them.
 
 -   Have your own style in naming!
 
@@ -695,7 +695,7 @@ The tidyverse package is a collection of R packages designed for data science.
 
 [![](images/tidyverse.PNG){width="604"}](https://www.tidyverse.org/)
 
-With library() we can load the packages into the session and make its functions available to use.
+With library(), we can load the packages into the session and make their functions available.
 
 ```{r}
 # install.packages("tidyverse)
@@ -706,7 +706,7 @@ library(tidyverse)
 library(tidyverse)
 ```
 
-You can see some packages are loaded. But the loading message is followed by a message that some functions are masked. Because some of functions have the same name in different packages. For example, both stats and dplyr have a function called filter. To determine which package do you want to use, you can write it in this format: `dplyr::filter()`
+You can see some packages are loaded. But the loading message is followed by a message that some functions are masked. Because some of the functions have the same name in different packages. For example, both stats and dplyr have a function called filter. To determine which package you want to use, you can write it in this format: `dplyr::filter().`
 
 CRAN is a network of web servers around the world that store identical versions of code and documentation for R. You can install packages from CRAN by running `install.packages("package_name")`. However, you can install a CRAN package from the right panel of RStudio.
 
@@ -719,9 +719,9 @@ You can install that package with this command:
     install.packages("file_path\\package_file_name.extension",
                      repos = NULL, type = "source")
 
-Or in the previous window change the "install from" to Package Archive File.
+Or, in the previous window, change the "install from" to Package Archive File.
 
-You can install a package from GitHub. First, you need to install devtools package.
+You can install a package from GitHub. First, you need to install the devtools package.
 
     install.packages(devtools)
 
@@ -731,7 +731,7 @@ Then you can use this command:
 
 # Data Wrangling
 
-Data wrangling - also called data cleaning - refers to a variety of processes designed to transform raw data.
+Data wrangling - data cleaning - refers to various processes designed to transform raw data.
 
 There are three main parts to data wrangling:
 
@@ -739,13 +739,13 @@ There are three main parts to data wrangling:
 
 ## Importing Data
 
-We use readr package to import data. There are four types of files.
+We use the readr package to import data. There are four types of files.
 
 -   delimited file: A delimited file is a sequential file with column delimiters.
 
--   csv file: A CSV (comma-separated values) file is a text file in which information is separated by commas or semicolons.
+-   CSV file: A CSV (comma-separated values) file is a text file in which commas or semicolons separate information.
 
--   tsv file: A TSV file is a tab-separated values file for storing data in a tabular structure.
+-   TSV file: A TSV file is a tab-separated values file for storing data in a tabular structure.
 
 ![](images/paste-C30F277F.png)
 
@@ -763,7 +763,7 @@ Tidy data is a consistent way of storing data that makes the next steps easier. 
 
 [![](images/tidy-1.png){width="457"}](https://r4ds.had.co.nz/tidy-data.html#tidy-data-1)
 
-We have a file in the "Sessions/1/data/" which contains a tidy data from some women about their living place, their height and weight.
+We have a file in the "Sessions/1/data/" containing tidy data from some women about their living place, height and weight.
 
 ```{r, include=FALSE, echo=FALSE}
 # MAKING THE DATA
@@ -791,7 +791,7 @@ women
 
 ## Transformation
 
-We will learn some functions that are helpful for transforming our data.
+We will learn some functions that help transform our data.
 
 ### mutate()
 
@@ -801,14 +801,14 @@ The mutate() adds new variables and preserves existing ones. Syntax: mutate(data
 women <- mutate(women, height_inch = height_cm / 2.54)
 women
 
-# mutate add the new column as the last column. You can change the place by .before or .after arguments.
+# mutate and add the new column as the last column. You can change the place by .before or .after arguments.
 women <- mutate(women, weight_lbs = weight_kg / 2.2, .after = weight_kg)
 women
 ```
 
 ### ifelse()
 
-The ifelse() is a shorthand vectorized alternative to the standard if...else statement. Syntax: ifelse(test_expression, x, y)
+The ifelse() is a shorthand vectorised alternative to the standard if...else statement. Syntax: ifelse(test_expression, x, y)
 
 ```{r}
 num_vec <- c(1:10)
@@ -826,14 +826,14 @@ women <- mutate(women, is_bmi_normal = ifelse(((18.5 <= weight_lbs/(height_inch 
 
 ### case_when()
 
-The case_when() is an alternative to an ifelse(). Whenever you need to use multiple if else statements, you can use it. Syntax: case_when(conditional_statement1 \~ x, conditional_statement2 \~ y, ...)
+The case_when() is an alternative to an ifelse(). You can use multiple if else statements whenever you need to use them. Syntax: case_when(conditional_statement1 \~ x, conditional_statement2 \~ y, ...)
 
 ```{r}
 num_vec <- c(0:10)
 
 result <- case_when(num_vec == 0 ~ "zero",
                     num_vec %% 2 == 0 ~ "even",
-                    TRUE ~ "odd") # TRUE means if not all above conditions equal to TRUE, so set "odd" as the value
+                    TRUE ~ "odd") # TRUE means if not all above conditions are equal to TRUE, so set "odd" as the value
 names(result) <- c(0:10)
 result
 ```
@@ -854,7 +854,7 @@ women
 
 ### group_by()
 
-You can use group_by() if you want to perform functions separately on different splits of data. Syntax: group_by(data, column1, column2, ....)
+You can use group_by() if you want to perform functions separately on different data splits. Syntax: group_by(data, column1, column2, ....)
 
 ```{r}
 women_g <- group_by(women, bmi)
@@ -864,7 +864,7 @@ women_g
 women_not_g
 ```
 
-**Q1:** Why the results are different? Because calculating the mean in grouped data frame equals to mean in each group, but in ungrouped data frame equals to mean of all weights.
+**Q1:** Why are the results different? Because calculating the mean in grouped data frame equals to mean in each group, but in ungrouped data.frame equals to mean of all weights.
 
 You can ungroup data with `ungroup(data)`.
 
@@ -872,7 +872,7 @@ You can ungroup data with `ungroup(data)`.
 women <- ungroup(women_g)
 ```
 
-**Q2:** Is it possible to group a data based on different variables? It is not possible with group_by(). You can add a new column shows the results of performed conditions and use that for group_by().
+**Q2:** Is it possible to group data based on different variables? It is not possible with group_by(). You can add a new column that shows the results of performed conditions and use that for group_by().
 
 ```{r, include=FALSE, echo=FALSE}
 # mean_height <- mean(women$height_cm, na.rm	= TRUE)
@@ -887,19 +887,19 @@ women <- ungroup(women_g)
 
 ### subset()
 
-The subset() returns a subset of the object which meet conditions. Syntax: subset (x, subset_sondition)
+The subset() returns a subset of the object which meets conditions. Syntax: subset (x, subset_sondition)
 
 ```{r}
 women_tall <- subset(women, bmi == "normal")
 women_tall
 
-women_na <- subset(women, is.na(height_cm)) # is.na() returns a logical value determines if the variable in NA
+women_na <- subset(women, is.na(height_cm)) # is.na() returns a logical value that determines if the variable in NA
 women_na
 ```
 
 ### distinct()
 
-The distinct selects only unique rows from a data frame. It picks the first represented duplicate row. Syntax: distinct(df, column1, column2, ..., .keep_all) Alwaya set .keep_all to TRUE.
+The distinct selects only unique rows from a data frame. It picks the first represented duplicate row. Syntax: distinct(df, column1, column2, ..., .keep_all) Always set .keep_all to TRUE.
 
 ```{r, include = FALSE, echo = FALSE}
 dup_women <- data.frame(name = women_tall[, 1],
@@ -914,7 +914,7 @@ dup_women <- data.frame(name = women_tall[, 1],
 women <- rbind(women, dup_women)
 ```
 
-Here is the new table. There are thre names that are not unique.
+Here is the new table. Three names are not unique.
 
 ```{r}
 women
@@ -927,7 +927,7 @@ women
 
 ### select()
 
-You can select columns from a dataframe with select().
+You can select columns from a data frame with select().
 
 ```{r}
 women_name <- select(women, name) # separate a column
@@ -940,7 +940,7 @@ women_weight
 
 ### separate_rows()
 
-"If a variable contains observations with multiple delimited values, this separates the values and places each one in its own row." Here, the city_province column values are delimited by comma. Syntax: separate_rows(data, col, ..., sep, convert, remove) The convert should be a logical value. Always set it to TRUE.
+"If a variable contains observations with multiple delimited values, this separates the values and places each in its own row." Here, the city_province column values are delimited by a comma. Syntax: separate_rows(data, col, ..., sep, convert, remove) The convert should be a logical value. Always set it to TRUE.
 
 ```{r, include=FALSE}
 women$city_province
@@ -952,7 +952,7 @@ women_sep_row <- separate_rows(women, city_province, sep = ",", convert = TRUE)
 
 ### separate()
 
-The separate() turns a single character column into multiple columns. Syntax: separate(data, col, into, sep, convert) The convert should be a logical value. Always set it to TRUE.
+The separate() turns a single character column into multiple columns. Syntax: separate(data, col, into, sep, convert). The convert should be a logical value. Always set it to TRUE.
 
 ```{r}
 women_sep_col <- separate(data = women, col = city_province, into = c("city", "province"), sep = ",", convert = TRUE, remove = TRUE)
@@ -995,7 +995,7 @@ The replace_na() replaces NAs with specified values. Syntax: replace(data, repla
 replacced_heights <- replace_na(women$height_cm,  replace = mean(women$height_cm, na.rm = TRUE))
 replacced_heights
 
-# a dataframe
+# a data frame
 women_rep_na <- replace_na(women,  replace = list(height_cm = mean(women$height_cm, na.rm = TRUE)))
 women_rep_na
 ```
@@ -1049,7 +1049,7 @@ str_to_title("r workshop")
 
 ### Special Characters
 
-the "\\" is a special character in R. If you want to type an slash you need to put another slash before it. Also, if you want to have a quotation in your string, you need to put an slash before it.
+The "\\" is a special character in R. If you want to type a slash, you need to put another slash before it. Also, if you want a quotation in your string, you need to put a slash before it.
 
 (Read the [stringr cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/strings.pdf) second page for more information.)
 
@@ -1060,3 +1060,39 @@ slash
 quote_str <- "\""
 quote_str
 ```
+
+# Acknowledgement
+
+I would like to thank my supervisor Dr Gregor Reid, Dr Ali Farrokhi, and Tanmaya Atre, for their support and guidance. Also, I would like to thank Reid's lab members and all of the people who helped me to get through my project.
+
+# Resources
+
+-   programiz.com
+
+-   sololearn.com
+
+-   codeacademy.com
+
+-   swcarpentry.github.io
+
+-   geeksforgeeks.org
+
+-   r-lang.com
+
+-   statmethods.net
+
+-   techtarget.com
+
+-   hbs-rcs.github.io
+
+-   datamentor.io
+
+-   tutorialspoint.com
+
+-   englelab.gatech.edu
+
+-   sthda.com
+
+-   bookdown.org
+
+-   r4ds.had.co.nz

@@ -65,3 +65,4 @@ Pathway Analysis in R
 # UPDATES
 
 -   08/24/2022: README file added
+-   08/29/2022: Session 1 compeleted

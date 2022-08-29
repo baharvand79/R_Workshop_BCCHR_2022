@@ -1,0 +1,16 @@
+name,city_province,weight_kg,height_cm
+Olivia,"Vancouver, BC",18,115
+Emma,"Vancouver, BC",19,117
+Charlotte,"Vancouver, BC",60,NA
+Amelia,"Vancouver, BC",31,123
+Ava,"Vancouver, BC",32,NA
+Sophia,"Edmonton, AB",33,129
+Isabella,"Edmonton, AB",34,132
+Mia,"Edmonton, AB",65,NA
+Evelyn,"Toronto, ON",26,139
+Harper,"Toronto, ON",67,142
+Luna,"Toronto, ON",68,146
+Camila,"Toronto, ON",69,150
+Gianna,"Ottawa, ON",70,154
+Elizabeth,"Ottawa, ON",71,159
+Eleanor,"Ottawa, ON",72,164

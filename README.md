@@ -10,11 +10,11 @@ Welcome to the R workshop! Below you'll find prerequisites for the classes. This
 
 Introduction to R
 
-## Learning objectives 
+## Learning objectives
 
 -   What is R and R Studio
 
--    Variables and missing values
+-   Variables and missing values
 
 -   Operators
 
@@ -56,7 +56,7 @@ Introduction to R
 
 Bulk RNA-seq Data Analysis with the DESeq2 Package
 
-# Session 3: Wednesday, 08/31/2022, Room 2108, 1 - 3 PM 
+# Session 3: Wednesday, 08/31/2022, Room 2108, 1 - 3 PM
 
 ## Title
 

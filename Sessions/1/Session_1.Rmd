@@ -328,7 +328,7 @@ new_vec
 You can select elements of a vector by position and value. We call the position of the index of the element.
 
 |                                                              |                                                              |
-|--------------------------------------------------------------|--------------------------------------------------------------|
+|------------------------------------|------------------------------------|
 | ![base-r-chaetsheet](images/paste-451A3300.png){width="360"} | ![base-r-chaetsheet](images/paste-F2AFB91A.png){width="358"} |
 
 ```{r}
@@ -467,7 +467,7 @@ heroes_df
 ### Subsetting
 
 |                                            |                              |
-|--------------------------------------------|------------------------------|
+|------------------------------------------|-----------------------------|
 | ![](images/paste-F09170C2.png){width="65"} | df[ , 2 ] or df\$column_name |
 | ![](images/paste-C64D46A3.png){width="65"} | df [ 2 , ]                   |
 | ![](images/paste-FF47D08D.png){width="65"} | df [ 2 , 2 ]                 |

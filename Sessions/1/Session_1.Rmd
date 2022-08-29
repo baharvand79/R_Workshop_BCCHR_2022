@@ -14,20 +14,20 @@ mainfont: SourceSansPro
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE) #highlite = github
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Introduction to the Workshop
 
 This workshop is for biologists interested in learning how to work with R to analyse their bulk RNA-seq data and perform pathway analysis. This will be a code-along, in-person workshop.
 
-# What is programming?
+# What is Programming?
 
 Programming is giving a set of instructions to a computer to perform tasks. Programming can be done using a variety of computer programming languages. Programming languages are the tools we use to write computer instructions. Computers only understand 1s and 0s. 0s mean no flow of electricity, and 1s represent electricity is allowed to flow. Programming languages allow us to translate 1s and 0s into something humans can understand.
 
 [![](images/what-is-a-programming-language.png){width="595"}](https://www.codecademy.com/resources/blog/programming-languages/)
 
-# R as a programming language
+# R as a Programming Language
 
 R is both software and language. R is a system for statistical analyses and graphics. At first, R could seem too complex for a non-specialist. This may not be true. R's syntax is straightforward.
 
@@ -196,7 +196,7 @@ Here is a list of maths functions of base R. You can find helpful functions from
 
 ![](images/paste-F42BDAE7.png)
 
-# Conditional statements
+# Conditional Statements
 
 Imagine you have a list of numbers and need to separate odd numbers from this list. We know that there is always a remainder when an odd number is divided by 2, which is not equal to zero. If you want to check the list, you can tell the computer to check if the remainder of the number nth in the list is not equal to zero. If it is, pick the nth number in the list. This phrase is a condition that the computer needs to check it. Conditional statements are the way computers can make decisions. Conditional statements always have an if part, and if you need more conditions to make up your decisions, the else part can be helpful.
 
@@ -225,7 +225,7 @@ if (var %% 2 == 0) {
 
 ```
 
-# Loop
+# Loops
 
 In computer programming, a loop is a sequence of instructions that continually repeats until a certain condition is reached. For example, you want to print stars with a specific pattern. You have five lines. Line n should have n stars, first line one star, second line two stars and so on. You can make this output with a loop. There are two types of loops.
 
@@ -328,7 +328,7 @@ new_vec
 You can select elements of a vector by position and value. We call the position of the index of the element.
 
 |                                                              |                                                              |
-|------------------------------------|------------------------------------|
+|--------------------------------------------------------------|--------------------------------------------------------------|
 | ![base-r-chaetsheet](images/paste-451A3300.png){width="360"} | ![base-r-chaetsheet](images/paste-F2AFB91A.png){width="358"} |
 
 ```{r}
@@ -467,7 +467,7 @@ heroes_df
 ### Subsetting
 
 |                                            |                              |
-|----------------------------------------|--------------------------------|
+|--------------------------------------------|------------------------------|
 | ![](images/paste-F09170C2.png){width="65"} | df[ , 2 ] or df\$column_name |
 | ![](images/paste-C64D46A3.png){width="65"} | df [ 2 , ]                   |
 | ![](images/paste-FF47D08D.png){width="65"} | df [ 2 , 2 ]                 |
@@ -637,7 +637,7 @@ vec_l
 
 You can write your own functions to make repetitive operations using a single command. Your function can return nothing and should be defined before use.
 
-![](images/paste-7C17BFCE.png){width="436"}
+![](images/paste-FB838EDE.png)
 
 ```{r}
 # I want to write a function to add two numbers and check if their addition is more than 10. I want to get "Yes!" if it was, otherwise see a "No!" on my screen
@@ -653,7 +653,7 @@ result <- check_more_than_10(1, 4)
 result
 ```
 
-# Naming
+# Naming Objects and Functions
 
 -   Object names must start with a letter, and can only contain letters, numbers, underscore (\_), and dot (.).
 
@@ -681,7 +681,7 @@ Here are some tips for naming objects:
 
 -   Start function names with command verbs to separate them from other objects and variables.
 
--   There are some reserved names in R. For example, data.frame is a reserved name. You cannot name your objects similar to a reserved name. Because they will be overwritten and you will miss them.
+-   There are some reserved names in R. We call them keywords. For example, data.frame is a key word. You cannot name your objects similar to a reserved name. Because they will be overwritten and you will miss them.
 
 -   Have your own style in naming!
 
@@ -716,14 +716,13 @@ There are other ways to install a package. You can install it from GitHub or a .
 
 You can install that package with this command:
 
-    install.packages("file_path\\package_file_name.extension",
-                     repos = NULL, type = "source")
+`install.packages("file_path\\package_file_name.extension",  repos = NULL, type = "source")`
 
 Or, in the previous window, change the "install from" to Package Archive File.
 
 You can install a package from GitHub. First, you need to install the devtools package.
 
-    install.packages(devtools)
+`install.packages(devtools)`
 
 Then you can use this command:
 
@@ -887,7 +886,9 @@ women <- ungroup(women_g)
 
 ### subset()
 
-The subset() returns a subset of the object which meets conditions. Syntax: subset (x, subset_sondition)
+The subset() returns a subset of the object which meets conditions.
+
+Syntax: subset (x, subset_sondition)
 
 ```{r}
 women_tall <- subset(women, bmi == "normal")
@@ -899,7 +900,9 @@ women_na
 
 ### distinct()
 
-The distinct selects only unique rows from a data frame. It picks the first represented duplicate row. Syntax: distinct(df, column1, column2, ..., .keep_all) Always set .keep_all to TRUE.
+The distinct selects only unique rows from a data frame. It picks the first represented duplicate row.
+
+Syntax: distinct(df, column1, column2, ..., .keep_all) Always set .keep_all to TRUE.
 
 ```{r, include = FALSE, echo = FALSE}
 dup_women <- data.frame(name = women_tall[, 1],
@@ -940,7 +943,9 @@ women_weight
 
 ### separate_rows()
 
-"If a variable contains observations with multiple delimited values, this separates the values and places each in its own row." Here, the city_province column values are delimited by a comma. Syntax: separate_rows(data, col, ..., sep, convert, remove) The convert should be a logical value. Always set it to TRUE.
+"If a variable contains observations with multiple delimited values, this separates the values and places each in its own row." Here, the city_province column values are delimited by a comma.
+
+Syntax: separate_rows(data, col, ..., sep, convert, remove) The convert should be a logical value. Always set it to TRUE.
 
 ```{r, include=FALSE}
 women$city_province
@@ -952,7 +957,9 @@ women_sep_row <- separate_rows(women, city_province, sep = ",", convert = TRUE)
 
 ### separate()
 
-The separate() turns a single character column into multiple columns. Syntax: separate(data, col, into, sep, convert). The convert should be a logical value. Always set it to TRUE.
+The separate() turns a single character column into multiple columns.
+
+Syntax: separate(data, col, into, sep, convert). The convert should be a logical value. Always set it to TRUE.
 
 ```{r}
 women_sep_col <- separate(data = women, col = city_province, into = c("city", "province"), sep = ",", convert = TRUE, remove = TRUE)
@@ -961,7 +968,9 @@ women_sep_col
 
 ### unite()
 
-The unite() paste together multiple columns into one. Syntax: unite(data, col, column1, column2, ..., sep, remove)
+The unite() paste together multiple columns into one.
+
+Syntax: unite(data, col, column1, column2, ..., sep, remove)
 
 ```{r}
 women_united <- unite(data = women_sep_col, col = "city_province", city:province, sep = ",", remove = TRUE)
@@ -970,7 +979,9 @@ women_united
 
 ### na.omit()
 
-The na.omit() returns the object with incomplete cases removed. Syntax: na.omit(data)
+The na.omit() returns the object with incomplete cases removed.
+
+Syntax: na.omit(data)
 
 ```{r}
 women_omit_na <- na.omit(women)
@@ -979,7 +990,9 @@ women_omit_na
 
 ### drop_na()
 
-The drop_na() drops rows where any column we specified contains a missing value. Syntax: drop_na(data, column1, column2, ...)
+The drop_na() drops rows where any column we specified contains a missing value.
+
+Syntax: drop_na(data, column1, column2, ...)
 
 ```{r}
 women_drop_na <- drop_na(women, height_cm)
@@ -988,7 +1001,9 @@ women_drop_na
 
 ### replace_na()
 
-The replace_na() replaces NAs with specified values. Syntax: replace(data, replace)
+The replace_na() replaces NAs with specified values.
+
+Syntax: replace(data, replace)
 
 ```{r}
 # a vector
@@ -1002,7 +1017,9 @@ women_rep_na
 
 ### column_to_rownames()
 
-The column_to_rownames() convert a column to rownames. Syntax: column_to_rownames(data, var)
+The column_to_rownames() convert a column to rownames.
+
+Syntax: column_to_rownames(data, var)
 
 ```{r}
 women <- tibble::column_to_rownames(women, var = "name")
@@ -1011,7 +1028,9 @@ women
 
 ### rownames_to_column()
 
-The rownames_to_column() convert rownames to a column. Syntax: rownames_to_column(data, var)
+The rownames_to_column() convert rownames to a column.
+
+Syntax: rownames_to_column(data, var)
 
 ```{r}
 women <- tibble::rownames_to_column(women, var = "name")

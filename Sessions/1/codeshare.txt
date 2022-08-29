@@ -1,0 +1,14 @@
+Hello everyone! This page is only available for 24 hours. I will share links here during the session 1 with you. 
+
+# GitHub repository for this session:
+https://github.com/baharvand79/R_Workshop_BCCHR_2022/tree/main/Sessions/1
+
+# You can download the repository with this website:
+https://download-directory.github.io/
+
+%% : remainder
+== : is_equal
+
+if 11 remaider divided by two is equal to 0
+
+if(11%%2==0) 

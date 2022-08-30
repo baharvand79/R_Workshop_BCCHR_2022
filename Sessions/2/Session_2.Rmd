@@ -6,7 +6,7 @@ date: "2022-08-30"
 output: 
   prettydoc::html_pretty:
     toc: true
-    toc_depth: 1
+    toc_depth: 3
     theme: cayman
     highlight: github
 fontsize: 25pt
@@ -372,6 +372,10 @@ ggsave(filename = "plots/pca_labeled.jpg",
 ```
 
 ![](plots/pca_labeled.jpg)
+
+# Acknowledgement
+
+I would like to thank my supervisor Dr Gregor Reid, Dr Ali Farrokhi, and Tanmaya Atre, for their support and guidance. Also, I would like to thank Reid's lab members and all of the people who helped me to get through my project.
 
 # Resources
 

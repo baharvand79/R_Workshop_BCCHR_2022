@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE, include = TRUE)
 
 # Introduction
 
-A basic task in the analysis of RNA-seq count data is to detect differentially expressed genes (DEGs). A gene is differentially expressed if the change in the read counts between two experimental conditions is statistically significant. It is possible to perform differential expression analysis with DESeq2 package. Its differential expression tests are based on a negative binomial generalized linear model.
+A basic task in analysing RNA-seq count data is to detect differentially expressed genes (DEGs). A gene is differentially expressed if the change in the read counts between two experimental conditions is statistically significant. It is possible to perform differential expression analysis with the DESeq2 package. Its differential expression tests are based on a negative binomial generalised linear model.
 
 ```{r, echo=FALSE}
 # loading packages
@@ -37,7 +37,7 @@ library(htmlwidgets)
 
 ## Importing Data
 
-The first step is importing data. An RNA-seq count data should be a non-normalized sequence read counts at either the gene or transcript level are presented as a table. The rows are the detected genes and the columns are the number of sequence fragments that have been assigned to each gene for each sample.
+The first step is importing data. An RNA-seq count data should be a non-normalised sequence read counts at either the gene or transcript level presented as a table. The rows are the detected genes, and the columns are the number of sequence fragments assigned to each gene for each sample.
 
 ```{r}
 count_data <- read_delim(file = "data/count_data.txt") # import count data
@@ -48,7 +48,7 @@ colnames(count_data)[3:9] <- gsub("-", "_", colnames(count_data)[3:9])
 
 ## Make a DESeqDataSet Object
 
-The next step is to create an object of class DESeqDataSet which will store the counts and intermediate calculations we need for the differential expression analysis. We use `DESeqDataSetFromMatrix(couvst_dfata, colData, design`) for this aim. The first argument is the couvst_dfata, The input should be an matrix, including integer values. Let's take a look at our count data.
+The next step is to create an object of class DESeqDataSet, which will store the counts and intermediate calculations we need for the differential expression analysis. We use `DESeqDataSetFromMatrix(couvst_dfata, colData, design`) for this aim. The first argument is the coun_data. The input should be a matrix, including integer values. Let's take a look at our count data.
 
 ```{r}
 str(count_data)
@@ -64,12 +64,12 @@ head(count_data)
 count_data <- count_data[, -1]
 # convert the count_data to a matrix
 count_data_mat <- as.matrix(count_data)
-# round the values to get rid of decimal part
+# round the values to get rid of the decimal part
 count_data_rounded <- round(count_data_mat, digits = 0)
 head(count_data_rounded)
 ```
 
-The second argument is colData. A colData is a data frame containing metadata about each sample. Each column should contain categorical values. It means you need to convert them to factor. The priority of the levels of factor variable is important. Here, pre_leukemic should be the reference. If we had other samples types like normal, the priority should be this sequence: normal, pre-leukemic, leukemic
+The second argument is colData. A colData is a data frame containing metadata about each sample. Each column should contain categorical values. It means you need to convert them to factor. The priority of the levels of factor variable is important. Here, pre_leukemic should be the reference. If we had other samples types like normal, the priority should be this sequence: normal, pre-leukemic, leukemic.
 
 ```{r}
 # creating colData
@@ -86,7 +86,7 @@ colData <- data.frame(sample_type = sample_type,
 colData
 ```
 
-The third argument is design. The DESeqDataSet object store the design formula used to estimate dispersion and log2 fold changes used within the model. When specifying the formula it should take the form of a "\~" followed by "+" separating factors.
+The third argument is design. The DESeqDataSet object store the design formula used to estimate dispersion and log2 fold changes used within the model. Specifying the formula should take the form of a "\~" followed by "+" separating factors.
 
 ```{r}
 dds <- DESeqDataSetFromMatrix(countData = count_data_rounded,
@@ -96,7 +96,7 @@ dds <- DESeqDataSetFromMatrix(countData = count_data_rounded,
 
 ```
 
-You can see dds stores the count data in assays, design formula in the design, and the colData in the colData. It is not possible to access to the count data directly from a DESeqDataSet object. We need to use `assay()`.
+You can see that dds stores the count data in assays, the design formula in the design, and the colData in the colData. It is impossible to access the count data directly from a DESeqDataSet object. We need to use `assay()`.
 
 ```{r}
 head(assay(dds))
@@ -106,7 +106,7 @@ head(assay(dds))
 
 ## Pre-filtering
 
-Genes with very low counts doesn't lead to reliable differential expression results. We need to do some light pre-filtering. This will reduce the size of the DEseq2DataSet object and speed up the runtime of the algorithm.
+Genes with very low counts don't lead to reliable differential expression results. We need to do some light pre-filtering. This will reduce the size of the DEseq2DataSet object and speed up the algorithm's runtime.
 
 Here we are filtering the genes with a sum total of 10 reads on all samples.
 
@@ -118,7 +118,7 @@ nrow(dds)
 
 ## The DESeq()
 
-We use `DESeq()` to perform differential expression analysis. It performs some steps, including an outlier removal procedure. This function performs a default analysis thought these below steps:
+We use `DESeq()` to perform differential expression analysis. It performs some steps, including an outlier removal procedure. This function performs a default analysis through these below steps:
 
 1.  estimation of size factors
 2.  estimation of dispersion
@@ -131,9 +131,9 @@ dds
 
 ## Shrinkage the Results
 
-The estimates of differences between sample groups calculated by `DESeq()` are not corrected for expression level. It means when counts are small, it leads to some large differences between sample groups. We can correct this by applying a "shrinkage" procedure.
+The estimates of differences between sample groups calculated by `DESeq()` are not corrected for expression level. When counts are small, it leads to large differences between sample groups. We can fix this by applying a "shrinkage" procedure.
 
-For this aim, we use `lfcShrink()`, but first we need to know the name and/or the position of the "coefficient"[\^1](Coefficient%20is%20the%20number%20in%20front%20of%20a%20variable%20or%20term.%20For%20example,%20in%20%606a%20+%201b%20+%202xy%60%206,%201,%202%20are%20the%20coefficients.) that is calculated by `DESeq()`. We can use `resultsNames()`. The `resultsNames()` returns the names of the estimated effects (coefficients) of the model.
+For this aim, we use `lfcShrink()`, but first we need to know the name and/or the position of the "coefficient"[\^1](Coefficient%20is%20the%20number%20in%20front%20of%20a%20variable%20or%20term.%20For%20example,%20in%20%606a%20+%201b%20+%202xy%60%206,%201,%202%20are%20the%20coefficients.) that is calculated by `DESeq()`. We can use `resultsNames()`. The `resultsNames()` returns the names of the model's estimated effects (coefficients).
 
 ```{r}
 resultsNames(dds)
@@ -151,9 +151,9 @@ class(shrunken_res)
 head(shrunken_res)
 ```
 
-Here we describes what does each column mean:
+Here we describe what each column means:
 
--   baseMean: The average of the normalized count values, dividing by size factors, taken over all samples.
+-   baseMean: The average of the normalised count values, divided by size factors, taken over all samples.
 
 -   log2FoldChange: This value indicates how much the gene or transcript's expression seems to have changed between the comparison and control groups. This value is reported on a logarithmic scale to base 2.
 
@@ -163,7 +163,7 @@ Here we describes what does each column mean:
 
 -   padj: Adjusted P-value for multiple testing for the gene or transcript.
 
-The `summary()` helps us to see the results briefly. You can set the `alpha` argument to 0.05. This is the value of adjusted p-value.
+The `summary()` helps us to see the results briefly. You can set the `alpha` argument to 0.05. This is the value of the adjusted p-value.
 
 ```{r}
 summary(shrunken_res, alpha = 0.05)
@@ -179,7 +179,7 @@ shrunken_res[is.na(shrunken_res$padj), ]
 
 Why do we have genes with no adjusted p-value?
 
-Adjusted p-values can be set to NA values if all samples have zero counts within a row, if a row contains a sample with an extreme count outlier, or if a row is filtered because it has a low mean normalized count.
+Adjusted p-values can be set to NA values if all samples have zero counts within a row, if a row contains a sample with an extreme count outlier, or if a row is filtered because it has a low mean normalised count.
 
 ## Significant Genes
 
@@ -210,7 +210,7 @@ ggsave(filename = "plots/not_labeled_volcano.jpg",
 
 ![](plots/not_labeled_volcano.jpg)
 
-We can name the genes and we can add a theme layer to the plot.
+We can name the genes and add a theme layer to the plot.
 
 ```{r, fig.show='hide', include=TRUE}
 p <- EnhancedVolcano(shrunken_res,
@@ -234,7 +234,7 @@ ggsave(filename = "plots/labeled_volcano.jpg",
 
 ## Heatmap
 
-Before visualizing count data, we need to transform it. The variance stabilizing transformations or VST is the most accurate and fastest way.
+Before visualising count data, we need to transform it. The variance stabilising transformation or VST is the most accurate and fastest way.
 
 ```{r}
 vst_obj <- vst(dds, blind = FALSE)
@@ -244,16 +244,16 @@ vst_df <- as.data.frame(assay(vst_obj))
 
 ### Static
 
-We are going to use `pheatmap() from pheatmap package` to plot static heatmap. We are going to visualize top 30 genes, based on adjusted p-value.
+We will use `pheatmap() from the pheatmap package` to plot the static heatmap. We will visualise the top 30 genes based on the adjusted p-value.
 
 ```{r, fig.show='hide', include=TRUE}
-# sort shrunken_res by adjusted p-value acsending
+# sort shrunken_res by adjusted p-value ascending
 shrunken_res <- shrunken_res[order(shrunken_res$padj),]
 
-# select top 15 up regulated
+# select the top 15 up-regulated
 top_15_up <- subset(shrunken_res, shrunken_res$padj <= 0.05 & shrunken_res$log2FoldChange > 0)
 top_15_up <- top_15_up[1:15, ]
-# select top 15 down regulated
+# select the top 15 down-regulated
 top_15_down <- subset(shrunken_res, shrunken_res$padj <= 0.05 & shrunken_res$log2FoldChange < 0)
 top_15_down <- top_15_down[1:15, ]
 
@@ -281,7 +281,7 @@ ggsave(filename = "plots/static_heatmap.jpg",
 
 ![](plots/static_heatmap.jpg)
 
-Let's change the color of heatmap. Here are some of color pallets in RColorBrewer package.
+Let's change the colour of the heatmap. Here are some of the colour pallets in the RColorBrewer package.
 
 ```{r}
 display.brewer.all(colorblindFriendly = TRUE)
@@ -291,7 +291,7 @@ col_pal <- colorRampPalette(rev(brewer.pal(9, "RdBu")))(200)
 plot(1:length(col_pal), 1:length(col_pal), col = col_pal, cex = 5, pch=19)
 ```
 
-We selected the new color for the plot. Let's add an annotation bar for the samples.
+We selected the new colour for the plot. Let's add an annotation bar for the samples.
 
 ```{r, fig.show='hide', include=TRUE}
 p <- pheatmap(top_30,
@@ -314,7 +314,7 @@ ggsave(filename = "plots/static_annotated_heatmap.jpg",
 
 ### Interactive
 
-To plot the interactive heatmap, we are using `d3heatmap()` from d3heatmap package. First, we need to cluster the rows and columns.
+To plot the interactive heatmap, we use `d3heatmap()` from the d3heatmap package. First, we need to cluster the rows and columns.
 
 ```{r}
 # clustering
@@ -330,7 +330,7 @@ p <- d3heatmap(top_30,
                Rowv=as.dendrogram(clustRows),
                Colv = as.dendrogram(clustColumns),
                scale='row')
-# sevewidget() from htmlwidgets helps us to save html files
+# sevewidget() from htmlwidgets helps us to save HTML files
 htmlwidgets::saveWidget(p, 
              file= "plots/interactive_heatmap.html")
 p
@@ -338,7 +338,7 @@ p
 
 ## Principal Component Analysis (PCA)
 
-PCA is an unsupervised method, similar to clustering, to find patterns. It simplifies the complexity in high-dimensional data. You can perform PCA with `prcomp()`.
+PCA is an unsupervised method, similar to clustering, to find patterns. It simplifies the complexity of high-dimensional data. You can perform PCA with `prcomp()`.
 
 ```{r, include = TRUE, fig.show='hide'}
 # we perform PCA based on all of the genes

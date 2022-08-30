@@ -955,8 +955,7 @@ women_sep_row <- separate_rows(women, city_province, sep = ",", convert = TRUE)
 
 The separate() turns a single character column into multiple columns.
 
-Syntax: separate(data, col, into, sep, convert).
-The convert should be a logical value. Always set it to TRUE.
+Syntax: separate(data, col, into, sep, convert). The convert should be a logical value. Always set it to TRUE.
 
 ```{r}
 women_sep_col <- separate(data = women, col = city_province, into = c("city", "province"), sep = ",", convert = TRUE, remove = TRUE)

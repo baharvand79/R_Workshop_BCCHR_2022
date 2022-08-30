@@ -1,0 +1,55 @@
+{r}
+# data("mtcars")
+# mtcars <- rownames_to_column(mtcars, var = "car_model")
+# mtcars$gear <- as.factor(mtcars$gear)
+# ggplot(data = mtcars)
+# ggplot(data = mtcars, mapping = aes(x = car_model, y = mpg))
+# ggplot(data = mtcars, mapping = aes(x = car_model, y = mpg)) +
+#   geom_point()
+# ggplot(data = mtcars, mapping = aes(x = car_model, y = mpg)) +
+#   geom_point(aes(color = cyl))
+# ggplot(data = mtcars, mapping = aes(x = car_model, y = mpg)) +
+#   geom_point(aes(color = cyl, size = carb))
+# ggplot(data = mtcars, mapping = aes(x = car_model, y = mpg)) +
+#   geom_point(aes(color = cyl, size = carb), shape = 18)
+# ggplot(data = mtcars, mapping = aes(x = car_model, y = mpg)) +
+#   geom_point(aes(color = cyl, size = carb, shape = gear)) # shape should not be a continuous variable. You can convert it to factor.
+# ggplot(data = mtcars, mapping = aes(x = car_model, y = mpg)) +
+#   geom_point(aes(color = cyl, size = carb, shape = gear)) +
+#   scale_y_log10() # if x was numeric: scale_x_log10 
+# ggplot(data = mtcars, mapping = aes(x = car_model, y = mpg)) +
+#   geom_point(aes(color = cyl, size = carb, shape = gear)) +
+#   coord_cartesian(ylim = c(min(mtcars$mpg) - 10, max(mtcars$mpg) + 10)) # you can determine xlim, too.
+# 
+# mtcars$brand <- word(mtcars$car_model, 1) # word() extract words from a sentence.
+# ggplot(data = mtcars, mapping = aes(x = car_model, y = mpg)) +
+#   geom_point(aes(color = cyl, size = carb, shape = gear)) +
+#   coord_cartesian(ylim = c(min(mtcars$mpg) - 10, max(mtcars$mpg) + 10)) +
+#   geom_text(aes(label = brand),
+#             angle = 45, hjust = "right", vjust = "right",
+#             color = "red", size = 4)
+# ggplot(data = mtcars, mapping = aes(x = car_model, y = mpg)) +
+#   geom_point(aes(color = cyl, size = carb, shape = gear)) +
+#   coord_cartesian(ylim = c(min(mtcars$mpg) - 10, max(mtcars$mpg) + 10)) +
+#   labs(x = "X Label", y = "Y Label", 
+#        title = "Title",
+#        subtitle = "Subtitle",
+#        caption = "Caption")
+# ggplot(data = mtcars, mapping = aes(x = car_model, y = mpg)) +
+#   geom_point(aes(color = cyl, size = carb, shape = gear)) +
+#   coord_cartesian(ylim = c(min(mtcars$mpg) - 10, max(mtcars$mpg) + 10)) +
+#   labs(x = "X Label", y = "Y Label", 
+#        title = "Title",
+#        subtitle = "Subtitle",
+#        caption = "Caption") +
+#   theme(axis.text.x = element_text(angle = 90, size = 8))
+# ggplot(data = mtcars, mapping = aes(x = car_model, y = mpg)) +
+#   geom_point(aes(color = cyl, size = carb, shape = gear)) +
+#   coord_cartesian(ylim = c(min(mtcars$mpg) - 10, max(mtcars$mpg) + 10)) +
+#   labs(x = "X Label", y = "Y Label", 
+#        title = "Title",
+#        subtitle = "Subtitle",
+#        caption = "Caption") +
+#   theme(axis.text.x = element_text(angle = 90, hjust=1, size = 8))
+
+# https://ggplot2.tidyverse.org/reference/theme.html

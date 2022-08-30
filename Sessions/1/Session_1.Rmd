@@ -266,7 +266,7 @@ names_vec <- c("Sarah", "Maria", "Alex")
 names_vec
 
 # create an integer sequence
-int_vec <- c(1:10)
+int_vec <- 1:10
 int_vec
 
 # create a sequence of decimal numbers
@@ -275,11 +275,11 @@ dec_vec
 
 # create a vector with repeating elements
 ## repeats the whole x, n times
-rep_t_vec <- rep(x = c(1:2), times = 3)
+rep_t_vec <- rep(x = c(1,2), times = 3)
 rep_t_vec
 
 ## repeats each element in x, n times
-rep_e_vec <- rep(x = c(1:2), each = 3)
+rep_e_vec <- rep(x = c(1,2), each = 3)
 rep_e_vec
 ```
 
@@ -317,8 +317,6 @@ If you already have a vector, there are two functions to use.
 
 ```{r, echo=TRUE}
 new_vec <- c(10, 20, 30)
-new_vec <- setNames(vec, c("I", "am", "happy"))
-new_vec
 names(new_vec) <- c("sarah", "maria", "alex")
 new_vec
 ```
@@ -344,10 +342,10 @@ heroes_vec[c(1, 5)]
 
 # by value
 subset_vec <- c("joker", "ironman")
-hero <- "batman"
-
-heroes_vec[heroes_vec == hero] # you can put any other conditions here
 heroes_vec[heroes_vec %in% subset_vec]
+
+hero <- "batman"
+heroes_vec[heroes_vec == hero] # you can put any other conditions here
 
 # named vector
 names(heroes_vec) <- c("Marvel1", "Marvel2", "Marvel3", "Marvel4", "Marvel5")

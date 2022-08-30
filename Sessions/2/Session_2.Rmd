@@ -21,6 +21,8 @@ knitr::opts_chunk$set(echo = TRUE, include = TRUE)
 
 A basic task in analysing RNA-seq count data is to detect differentially expressed genes (DEGs). A gene is differentially expressed if the change in the read counts between two experimental conditions is statistically significant. It is possible to perform differential expression analysis with the DESeq2 package. Its differential expression tests are based on a negative binomial generalised linear model.
 
+![](images/paste-63E1BFAD.png)
+
 ```{r, echo=FALSE}
 # loading packages
 library(tidyverse)
@@ -37,6 +39,8 @@ library(htmlwidgets)
 
 ## Importing Data
 
+![](images/paste-BFB457E7.png)
+
 The first step is importing data. An RNA-seq count data should be a non-normalised sequence read counts at either the gene or transcript level presented as a table. The rows are the detected genes, and the columns are the number of sequence fragments assigned to each gene for each sample.
 
 ```{r}
@@ -48,13 +52,19 @@ colnames(count_data)[3:9] <- gsub("-", "_", colnames(count_data)[3:9])
 
 ## Make a DESeqDataSet Object
 
+![](images/paste-F6465940.png)
+
 The next step is to create an object of class DESeqDataSet, which will store the counts and intermediate calculations we need for the differential expression analysis. We use `DESeqDataSetFromMatrix(couvst_dfata, colData, design`) for this aim. The first argument is the coun_data. The input should be a matrix, including integer values. Let's take a look at our count data.
 
 ```{r}
 str(count_data)
 ```
 
-The first two columns are characters. Other columns are numeric. And it is a data frame. So, we need to convert it to a matrix. But we have mentioned in the previous session that the data type of matrix values should be the same. We need to convert them to integer values. First, we remove character columns and then we round the numeric values.
+The first two columns are characters. Other columns are numeric. And it is a data frame. So, we need to convert it to a matrix. But we have mentioned in the previous session that the data type of matrix values should be the same. We need to convert them to integer values.
+
+![](images/paste-69D37B01.png)
+
+First, we remove character columns and then we round the numeric values.
 
 ```{r}
 # adding gene names as rownames
@@ -68,6 +78,8 @@ count_data_mat <- as.matrix(count_data)
 count_data_rounded <- round(count_data_mat, digits = 0)
 head(count_data_rounded)
 ```
+
+![](images/paste-56A6BA8E.png)
 
 The second argument is colData. A colData is a data frame containing metadata about each sample. Each column should contain categorical values. It means you need to convert them to factor. The priority of the levels of factor variable is important. Here, pre_leukemic should be the reference. If we had other samples types like normal, the priority should be this sequence: normal, pre-leukemic, leukemic.
 
@@ -85,6 +97,8 @@ colData <- data.frame(sample_type = sample_type,
                       row.names = colnames(count_data))
 colData
 ```
+
+![](images/paste-9336E400.png)
 
 The third argument is design. The DESeqDataSet object store the design formula used to estimate dispersion and log2 fold changes used within the model. Specifying the formula should take the form of a "\~" followed by "+" separating factors.
 
@@ -104,7 +118,11 @@ head(assay(dds))
 
 # Differential Expression Analysis
 
+![](images/paste-3856F6D3.png)
+
 ## Pre-filtering
+
+![](images/paste-931A1A31.png)
 
 Genes with very low counts don't lead to reliable differential expression results. We need to do some light pre-filtering. This will reduce the size of the DEseq2DataSet object and speed up the algorithm's runtime.
 
@@ -118,6 +136,8 @@ nrow(dds)
 
 ## The DESeq()
 
+![](images/paste-BC1B2E84.png)
+
 We use `DESeq()` to perform differential expression analysis. It performs some steps, including an outlier removal procedure. This function performs a default analysis through these below steps:
 
 1.  estimation of size factors
@@ -130,6 +150,8 @@ dds
 ```
 
 ## Shrinkage the Results
+
+![](images/paste-2356279D.png)
 
 The estimates of differences between sample groups calculated by `DESeq()` are not corrected for expression level. When counts are small, it leads to large differences between sample groups. We can fix this by applying a "shrinkage" procedure.
 
@@ -169,7 +191,7 @@ The `summary()` helps us to see the results briefly. You can set the `alpha` arg
 summary(shrunken_res, alpha = 0.05)
 ```
 
-## Missing P-values
+### Missing P-values
 
 Let's check if there is any missing adjusted p-value.
 
@@ -183,6 +205,8 @@ Adjusted p-values can be set to NA values if all samples have zero counts within
 
 ## Significant Genes
 
+![](images/paste-36621E37.png)
+
 The genes with adjusted p-value \< 0.05 are statistically significant. We are going to select them.
 
 ```{r}
@@ -191,7 +215,11 @@ shrunk_res_sig <- subset(shrunken_res, shrunken_res$padj <= 0.05)
 
 # Exploring the Results
 
+![](images/paste-6A010ADC.png)
+
 ## Volcano Plot
+
+![](images/paste-8489EB12.png)
 
 ```{r, fig.show='hide', include=TRUE}
 p <- EnhancedVolcano(shrunken_res,
@@ -234,6 +262,8 @@ ggsave(filename = "plots/labeled_volcano.jpg",
 
 ## Heatmap
 
+![](images/paste-92AD29F4.png)
+
 Before visualising count data, we need to transform it. The variance stabilising transformation or VST is the most accurate and fastest way.
 
 ```{r}
@@ -243,6 +273,8 @@ vst_df <- as.data.frame(assay(vst_obj))
 ```
 
 ### Static
+
+![](images/paste-44A34D0A.png)
 
 We will use `pheatmap() from the pheatmap package` to plot the static heatmap. We will visualise the top 30 genes based on the adjusted p-value.
 
@@ -314,6 +346,8 @@ ggsave(filename = "plots/static_annotated_heatmap.jpg",
 
 ### Interactive
 
+![](images/paste-90D5FB20.png)
+
 To plot the interactive heatmap, we use `d3heatmap()` from the d3heatmap package. First, we need to cluster the rows and columns.
 
 ```{r}
@@ -337,6 +371,8 @@ p
 ```
 
 ## Principal Component Analysis (PCA)
+
+![](images/paste-576C8B76.png)
 
 PCA is an unsupervised method, similar to clustering, to find patterns. It simplifies the complexity of high-dimensional data. You can perform PCA with `prcomp()`.
 

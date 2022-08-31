@@ -215,6 +215,7 @@ down_ora_GO_BP
 
 
 ```
+
 ```{r}
 up_ora_GO_BP <- enrichGO(up_genes_vec,
                            OrgDb = org.Mm.eg.db,
@@ -226,6 +227,7 @@ up_ora_GO_BP <- enrichGO(up_genes_vec,
 up_ora_GO_BP <- clusterProfiler::simplify(up_ora_GO_BP, cutoff=0.7, by="p.adjust", select_fun=min)
 
 ```
+
 ### Run compareCluster()
 
 If you want to perform analysis for more than a group of data, you can use compareCluster().
@@ -440,7 +442,8 @@ enrichplot::cnetplot(clustered_ora_GO_BP,
 
 ### Enrichment Map
 
-Enrichment map organizes enriched terms into a network with edges connecting overlapping gene sets. In this way, mutually overlapping gene sets are tend to cluster together, making it easy to identify functional module.
+Enrichment map organizes enriched terms into a network with edges connecting overlapping gene sets.
+In this way, mutually overlapping gene sets are tend to cluster together, making it easy to identify functional module.
 
 ```{r}
 # Get the similarity matrix
@@ -465,7 +468,9 @@ heatplot(down_ora_GO_BP,
 ```
 
 ### Pubmed Trend of Enriched Terms
-One of the problem of enrichment analysis is to find pathways for further investigation. The pmcplot function is provided to plot the number/proportion of publications trend based on the query result from PubMed Central.
+
+One of the problem of enrichment analysis is to find pathways for further investigation.
+The pmcplot function is provided to plot the number/proportion of publications trend based on the query result from PubMed Central.
 
 ```{r}
 terms <- down_ora_GO_BP$Description
@@ -477,7 +482,9 @@ View(p[["data"]])
 ## GSEA
 
 ### Ridgeline Plot for Expression Distribution of Gsea Result
-The ridgeplot will visualize expression distributions of core enriched genes for GSEA enriched categories. It helps users to interpret up/down-regulated pathways.
+
+The ridgeplot will visualize expression distributions of core enriched genes for GSEA enriched categories.
+It helps users to interpret up/down-regulated pathways.
 
 ```{r}
 # up-regulated
@@ -490,7 +497,6 @@ ggsave(filename = "results/ridgeplot_up.jpeg",
        dpi = 600)
 ```
 
-
 ```{r}
 # down-regulated
 rp <- ridgeplot(down_gsea_GO_BP, 
@@ -501,6 +507,7 @@ ggsave(filename = "results/ridgeplot_down.jpeg",
        height = 5,
        dpi = 600)
 ```
+
 ### Running Score and Preranked List of GSEA Result
 
 Running score and preranked list are traditional methods for visualizing GSEA result.
@@ -515,6 +522,7 @@ gseaplot2(down_gsea_GO_BP, geneSetID = 1:2)
 
 # Acknowledgement
 
-I would like to thank my supervisor Dr Gregor Reid, Dr Ali Farrokhi, and Tanmaya Atre, for their support and guidance. Also, I would like to thank Reid's lab members and all of the people who helped me to get through my project.
+I would like to thank my supervisor Dr Gregor Reid, Dr Ali Farrokhi, and Tanmaya Atre, for their support and guidance.
+Also, I would like to thank Reid's lab members and all of the people who helped me to get through my project.
 
-And Thank you all for participating in the workshop. 
+And Thank you all for participating in the workshop.

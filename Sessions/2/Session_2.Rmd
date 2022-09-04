@@ -41,7 +41,7 @@ library(htmlwidgets)
 
 ![](images/paste-BFB457E7.png)
 
-The first step is importing data. An RNA-seq count data should be a non-normalised sequence read counts at either the gene or transcript level presented as a table. The rows are the detected genes, and the columns are the number of sequence fragments assigned to each gene for each sample.
+The first step is importing data. An RNA-seq count data should be a non-normalised sequence read counts at either the gene or transcript level presented as a table. The rows are the detected genes, and the columns are the number of sequence fragments assigned to each gene for each sample. This results are from an experiment fromm pre-leukemic and leukemic results.
 
 ```{r}
 count_data <- read_delim(file = "data/count_data.txt") # import count data

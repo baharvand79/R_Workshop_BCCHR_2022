@@ -507,12 +507,18 @@ ggsave(filename = "results/ridgeplot_down.jpeg",
 
 ### Running Score and Preranked List of GSEA Result
 
+Here is the link of a video, which will help you to understand what is an enrichment score.
+
+[link of video](https://www.youtube.com/watch?v=2NC1QOXmc5o)
+
 Running score and preranked list are traditional methods for visualizing GSEA result.
 
 ```{r}
 # up-regulted
 gseaplot2(up_gsea_GO_BP, geneSetID = 1:3)
+```
 
+```{r}
 # down-regulated
 gseaplot2(down_gsea_GO_BP, geneSetID = 1:2)
 ```
@@ -523,3 +529,4 @@ I would like to thank my supervisor Dr Gregor Reid, Dr Ali Farrokhi, and Tanmaya
 Also, I would like to thank Reid's lab members and all of the people who helped me to get through my project.
 
 And Thank you all for participating in the workshop.
+:)

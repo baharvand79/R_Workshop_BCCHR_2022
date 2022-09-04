@@ -56,13 +56,55 @@ Introduction to R
 
 Bulk RNA-seq Data Analysis with the DESeq2 Package
 
+## Learning objectives
+
+-   how does a count table look like
+-   how to perform differential expression analysis
+-   how to visualize your results
+
+## Prerequisites
+
+Install tidyverse, EnhancedVolcano, ggrepel, pheatmap, RColorBrewer, d3heatmap, htmlwidgets, BiocManager, and DESeq2 packges.
+Run this chunk of code for this purpose.
+install.packages('tidyvarse')
+install.packages('ggrepel')
+install.packages('pheatmap')
+install.packages('RColorBrewer')
+install.packages('htmlwidgets')
+install.packages('BiocManager')
+BiocManager::install('EnhancedVolcano')
+BiocManager::install("DESeq2")
+install.packages('devtools')
+devtools::install_github('talgalili/d3heatmap')
+
 # Session 3: Wednesday, 08/31/2022, Room 2108, 1 - 3 PM
 
 ## Title
 
 Pathway Analysis in R
 
+## Learning objectives
+
+-   what is pathway analysis and what are the different types
+-   how to perform GSEA
+-   how to perform ORA
+-   how to visualize your results
+
+## Prerequisites
+
+Intstall AnnotationDbi, org.Mm.eg.db, clusterProfiler, enrichplot, europepmc, and ggridges packages.
+Run this chunk of code for this purpose.
+BiocManager::install("AnnotationDbi")
+BiocManager::install("org.Mm.eg.db")
+BiocManager::install("clusterProfiler")
+BiocManager::install("enrichplot")
+install.packages("europepmc")
+install.packages(" ggridges")
+
 # UPDATES
 
 -   08/24/2022: README file added
 -   08/29/2022: Session 1 compeleted
+-   08/30/2022: Session 2 compeleted
+-   08/31/2022: Session 3 compeleted
+-   09/04/2022: Files are updated

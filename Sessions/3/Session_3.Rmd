@@ -386,7 +386,6 @@ Visualize the enriched terms.
 
 dotplot(down_ora_GO_BP, 
         showCategory = 10) + # first 10 terms
-  ggtitle("ORA down-regulated gene set result")
 
 dotplot(clustered_ora_GO_BP,
         showCategory = 10) +
@@ -411,9 +410,7 @@ cnetplot() depicts the linkages of genes and biological concepts (*e.g.* GO term
 enrichplot::cnetplot(down_ora_GO_BP, 
                      categorySize="p.value", 
                      showCategory = 5,
-                     foldChange = all_genes_lfc, 
-                     layout = "kk",
-                     node_label = "all") +
+                     foldChange = all_genes_lfc) +
     ggtitle(label = "cnet for ORA down-regulated gene set")
 ```
 

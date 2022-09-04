@@ -1,8 +1,12 @@
 # R_Workshop_BCCHR_2022
 
+Hello all! The workshop is done now. If there is any question, please contact me: baharvand79f@gmail.com
+Also, there is a chance to update the material or add further instructions and training files. If you want to receive an e-mail for the updates, please fill this [form](https://forms.gle/gLPQLgavpiAgy8AB7)
+If you have already participated in the workshop, please let me know your feedback by filling out this [form](https://forms.gle/yFGRZDyr3yxQQkgJ6). It will help me to improve my work.
+
 # Introduction
 
-Welcome to the R workshop! Below you'll find prerequisites for the classes. This file and the repository will be updated before each session. The workshop will be a code-along, and in-person workshop and you do not need any prior knowledge of R. After each session, please fill out the [feedback form](https://forms.gle/yFGRZDyr3yxQQkgJ6).
+Welcome to the R workshop! Below you'll find prerequisites for the classes. This file and the repository will be updated before each session. The workshop will be a code-along and in-person workshop, and you do not need any prior knowledge of R. After each session, please fill out the [feedback form](https://forms.gle/yFGRZDyr3yxQQkgJ6).
 
 # Session 1: Monday, 08/29/2022, Room 3113, 11 AM - 1 PM
 
@@ -64,9 +68,9 @@ Bulk RNA-seq Data Analysis with the DESeq2 Package
 
 ## Prerequisites
 
-Install tidyverse, EnhancedVolcano, ggrepel, pheatmap, RColorBrewer, d3heatmap, htmlwidgets, BiocManager, and DESeq2 packges.
+Install tidyverse, EnhancedVolcano, ggrepel, pheatmap, RColorBrewer, d3heatmap, htmlwidgets, BiocManager, and DESeq2 packages.
 Run this chunk of code for this purpose.
-install.packages('tidyvarse')
+install.packages('tidyverse')
 install.packages('ggrepel')
 install.packages('pheatmap')
 install.packages('RColorBrewer')
@@ -85,7 +89,7 @@ Pathway Analysis in R
 
 ## Learning objectives
 
--   what is pathway analysis and what are the different types
+-   what is pathway analysis, and what are the different types
 -   how to perform GSEA
 -   how to perform ORA
 -   how to visualize your results
@@ -104,7 +108,7 @@ install.packages(" ggridges")
 # UPDATES
 
 -   08/24/2022: README file added
--   08/29/2022: Session 1 compeleted
--   08/30/2022: Session 2 compeleted
--   08/31/2022: Session 3 compeleted
+-   08/29/2022: Session 1 completed
+-   08/30/2022: Session 2 completed
+-   08/31/2022: Session 3 completed
 -   09/04/2022: Files are updated
